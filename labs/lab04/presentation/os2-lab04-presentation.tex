@@ -1,0 +1,1506 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+  aspectratio=169,
+  russian,
+]{beamer}
+\newif\ifbibliography
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolshorizontal
+% remove section numbering
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{section title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{subsection title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[Ligatures=Common,Ligatures=TeX,Scale=0.94]{IBM Plex
+Serif}
+  \setsansfont[Ligatures=Common,Ligatures=TeX,Scale=MatchLowercase,Scale=0.94]{IBM
+Plex Sans}
+  \setmonofont[Scale=MatchLowercase,Scale=0.94]{DejaVu Sans Mono}
+  \setmathfont[]{STIX Two Math}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off,provide=*]{babel}
+\else
+\usepackage[bidi=default,shorthands=off,provide=*]{babel}
+\fi
+\ifPDFTeX
+\else
+\babelfont{rm}[Ligatures=Common,Ligatures=TeX,Scale=0.94]{IBM Plex
+Serif}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+\usepackage[]{csquotes}
+
+
+
+%%% Load theme
+\usetheme{Madrid}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Содержание}
+\else
+  \newcommand\contentsname{Содержание}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Список иллюстраций}
+\else
+  \newcommand\listfigurename{Список иллюстраций}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Список таблиц}
+\else
+  \newcommand\listtablename{Список таблиц}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Рисунок}
+\else
+  \newcommand\figurename{Рисунок}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Таблица}
+\else
+  \newcommand\tablename{Таблица}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Список}
+\newcommand*\listoflistings{\listof{codelisting}{Листинги}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={Лабораторная работа №4. Работа с программными пакетами},
+  pdfauthor={Мацюк Константин Владимирович},
+  pdflang={ru-RU},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{\texorpdfstring{Лабораторная работа №4. Работа с программными
+пакетами}{Лабораторная работа №4. Работа с программными пакетами}}
+\subtitle{\texorpdfstring{Дисциплина: Основы администрирования
+операционных
+систем}{Дисциплина: Основы администрирования операционных систем}}
+\author{Мацюк Константин Владимирович}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\renewcommand*\contentsname{Содержание}
+\begin{frame}[allowframebreaks]
+  \frametitle{Содержание}
+  \setcounter{tocdepth}{1}
+  \tableofcontents
+\end{frame}
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+
+\section{Вводная
+часть}\label{ux432ux432ux43eux434ux43dux430ux44f-ux447ux430ux441ux442ux44c}
+
+\begin{frame}[fragile]{Актуальность, объект и предмет}
+\protect\phantomsection\label{ux430ux43aux442ux443ux430ux43bux44cux43dux43eux441ux442ux44c-ux43eux431ux44aux435ux43aux442-ux438-ux43fux440ux435ux434ux43cux435ux442}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Работа с программными пакетами --- базовая задача администрирования
+  Linux
+\item
+  Репозитории и менеджеры пакетов определяют установку и обновление ПО
+\item
+  Необходимо уверенно работать с \texttt{dnf} и \texttt{rpm}
+\item
+  Важна безопасная установка/удаление пакетов и анализ их содержимого
+\item
+  \textbf{Объект:} репозитории и программные пакеты в ОС типа Linux
+\item
+  \textbf{Предмет:} менеджеры пакетов \texttt{dnf}, \texttt{rpm};
+  конфигурационные файлы \texttt{/etc/dnf/dnf.conf}, \texttt{/etc/dnf/},
+  \texttt{/etc/yum.repos.d/}, \texttt{/var/cache/dnf/},
+  \texttt{/var/log/dnf.log}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Цели, задачи, материалы и методы}
+\protect\phantomsection\label{ux446ux435ux43bux438-ux437ux430ux434ux430ux447ux438-ux43cux430ux442ux435ux440ux438ux430ux43bux44b-ux438-ux43cux435ux442ux43eux434ux44b}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  \textbf{Цель:} получить навыки работы с репозиториями и менеджерами
+  пакетов
+\item
+  \textbf{Задачи:}
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Изучить, как и в каких файлах подключаются репозитории
+  \item
+    Изучить основные возможности \texttt{dnf} (поиск, установка,
+    обновление, удаление, история)
+  \item
+    Повторить установку/удаление пакета через \texttt{dnf}
+  \item
+    Повторить установку/удаление пакета через \texttt{rpm}
+  \end{itemize}
+\item
+  \textbf{Материалы и методы:} ОС Linux (RHEL/CentOS/Fedora); команды
+  \texttt{dnf}, \texttt{rpm}, \texttt{find}, \texttt{which},
+  \texttt{man}; пакеты \texttt{nmap}, \texttt{lynx}, \texttt{dnsmasq}
+\end{itemize}
+\end{frame}
+
+\section{Теоретическое
+введение}\label{ux442ux435ux43eux440ux435ux442ux438ux447ux435ux441ux43aux43eux435-ux432ux432ux435ux434ux435ux43dux438ux435}
+
+\begin{frame}[fragile]{Пакетный менеджер dnf и его конфигурация}
+\protect\phantomsection\label{ux43fux430ux43aux435ux442ux43dux44bux439-ux43cux435ux43dux435ux434ux436ux435ux440-dnf-ux438-ux435ux433ux43e-ux43aux43eux43dux444ux438ux433ux443ux440ux430ux446ux438ux44f}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  \texttt{dnf} используется в популярных Linux-дистрибутивах для
+  установки, удаления и других действий с пакетами
+\item
+  Основные команды \texttt{dnf} --- раздел 4.2.1; опции --- 4.2.2;
+  \texttt{yum-utils} --- 4.2.3
+\item
+  Конфигурационные файлы --- 4.2.4; опции \texttt{dnf.conf} --- 4.2.5;
+  плагины --- 4.2.6; прокси --- 4.2.7
+\end{itemize}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2358}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7642}}@{}}
+\caption{Основные конфигурационные файлы и каталоги
+dnf}\label{tbl-dnf-files}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Файл/каталог
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Описание
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Файл/каталог
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Описание
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\texttt{/etc/dnf/dnf.conf} & Основной конфигурационный файл
+\texttt{dnf} \\
+\texttt{/etc/dnf/} & Директория с конфигурациями (например,
+dnf-плагины) \\
+\texttt{/etc/yum.repos.d/} & Директория с информацией о репозиториях \\
+\texttt{/var/cache/dnf/} & Директория, где \texttt{dnf} хранит кэш и
+файлы базы (по умолчанию) \\
+\texttt{/var/log/dnf.log} & Лог-файл выполнения транзакций (по
+умолчанию) \\
+\bottomrule\noalign{}
+\end{longtable}
+\end{frame}
+
+\section{Выполнение лабораторной
+работы}\label{ux432ux44bux43fux43eux43bux43dux435ux43dux438ux435-ux43bux430ux431ux43eux440ux430ux442ux43eux440ux43dux43eux439-ux440ux430ux431ux43eux442ux44b}
+
+\begin{frame}[fragile]{Работа с репозиториями}
+\protect\phantomsection\label{ux440ux430ux431ux43eux442ux430-ux441-ux440ux435ux43fux43eux437ux438ux442ux43eux440ux438ux44fux43cux438}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  В консоли перешёл в режим работы суперпользователя, выполнив команду
+  \texttt{su\ -} (рис.~\ref{fig-001})
+\item
+  Перешёл в каталог \texttt{/etc/yum.repos.d} и изучил содержание
+  каталога и файлов репозиториев (рис.~\ref{fig-002})
+\item
+  Вывел на экран список репозиториев командой \texttt{dnf\ repolist}
+  (рис.~\ref{fig-003})
+\item
+  Полученная информация показывает подключённые репозитории: appstream,
+  baseos, epel, extras, yarn
+\end{itemize}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/1.jpg}
+
+}
+
+\caption{\label{fig-001}Получение прав root}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/2.jpg}
+
+}
+
+\caption{\label{fig-002}Переход в каталог репозиториев}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Просмотр списка активных репозиториев}
+\protect\phantomsection\label{ux43fux440ux43eux441ux43cux43eux442ux440-ux441ux43fux438ux441ux43aux430-ux430ux43aux442ux438ux432ux43dux44bux445-ux440ux435ux43fux43eux437ux438ux442ux43eux440ux438ux435ux432}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/3.jpg}
+
+}
+
+\caption{\label{fig-003}Просмотр списка активных репозиториев}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Поиск пакета user}
+\protect\phantomsection\label{ux43fux43eux438ux441ux43a-ux43fux430ux43aux435ux442ux430-user}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Вывел на экран список пакетов, в названии или описании которых есть
+  слово \texttt{user}, командой \texttt{dnf\ search\ user}
+  (рис.~\ref{fig-004}, рис.~\ref{fig-005})
+\end{itemize}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{image/4.jpg}
+
+}
+
+\caption{\label{fig-004}Поиск пакета (начало)}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{image/5.jpg}
+
+}
+
+\caption{\label{fig-005}Результаты поиска}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Установка nmap: поиск и информация}
+\protect\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-nmap-ux43fux43eux438ux441ux43a-ux438-ux438ux43dux444ux43eux440ux43cux430ux446ux438ux44f}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Установил \texttt{nmap}, предварительно изучив информацию по имеющимся
+  пакетам (рис.~\ref{fig-006}---рис.~\ref{fig-008})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{dnf}\NormalTok{ search nmap}
+\ExtensionTok{dnf}\NormalTok{ info nmap}
+\ExtensionTok{dnf}\NormalTok{ install nmap}
+\ExtensionTok{dnf}\NormalTok{ install nmap}\DataTypeTok{\textbackslash{}*}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/6.jpg}
+
+}
+
+\caption{\label{fig-006}Поиск пакета nmap}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/7.jpg}
+
+}
+
+\caption{\label{fig-007}Информация о пакете (начало)}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Информация о пакете nmap (продолжение)}
+\protect\phantomsection\label{ux438ux43dux444ux43eux440ux43cux430ux446ux438ux44f-ux43e-ux43fux430ux43aux435ux442ux435-nmap-ux43fux440ux43eux434ux43eux43bux436ux435ux43dux438ux435}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/8.jpg}
+
+}
+
+\caption{\label{fig-008}Информация о пакете (продолжение)}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Установка nmap}
+\protect\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-nmap}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Разница между \texttt{dnf\ install\ nmap} и
+  \texttt{dnf\ install\ nmap*}: первая команда устанавливает только
+  пакет \texttt{nmap}, вторая --- все пакеты, имя которых начинается с
+  \texttt{nmap} (например, \texttt{nmap-ncat}). В моем случае все
+  пакеты, имя которых начинается с \texttt{nmap} уже установлены
+  (рис.~\ref{fig-009}, рис.~\ref{fig-010})
+\end{itemize}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/9.jpg}
+
+}
+
+\caption{\label{fig-009}Установка nmap}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/10.jpg}
+
+}
+
+\caption{\label{fig-010}Установка nmap*}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Удаление nmap}
+\protect\phantomsection\label{ux443ux434ux430ux43bux435ux43dux438ux435-nmap}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Удалил \texttt{nmap} (рис.~\ref{fig-011}, рис.~\ref{fig-012})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{dnf}\NormalTok{ remove nmap}
+\ExtensionTok{dnf}\NormalTok{ remove nmap}\DataTypeTok{\textbackslash{}*}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/11.jpg}
+
+}
+
+\caption{\label{fig-011}Удаление пакета nmap}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{image/12.jpg}
+
+}
+
+\caption{\label{fig-012}Удаление сопутствующих пакетов}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Работа с группами пакетов: список и информация}
+\protect\phantomsection\label{ux440ux430ux431ux43eux442ux430-ux441-ux433ux440ux443ux43fux43fux430ux43cux438-ux43fux430ux43aux435ux442ux43eux432-ux441ux43fux438ux441ux43eux43a-ux438-ux438ux43dux444ux43eux440ux43cux430ux446ux438ux44f}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Получил список имеющихся групп пакетов, затем установил группу пакетов
+  RPM Development Tools (рис.~\ref{fig-013}---рис.~\ref{fig-015})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{dnf}\NormalTok{ groups list}
+\VariableTok{LANG}\OperatorTok{=}\NormalTok{C }\ExtensionTok{dnf}\NormalTok{ groups list}
+\ExtensionTok{dnf}\NormalTok{ groups info }\StringTok{"RPM Development Tools"}
+\ExtensionTok{dnf}\NormalTok{ groupinstall }\StringTok{"RPM Development Tools"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/13.jpg}
+
+}
+
+\caption{\label{fig-013}Список групп пакетов}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/14.jpg}
+
+}
+
+\caption{\label{fig-014}Список групп с локализацией}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Информация о группе RPM Development Tools}
+\protect\phantomsection\label{ux438ux43dux444ux43eux440ux43cux430ux446ux438ux44f-ux43e-ux433ux440ux443ux43fux43fux435-rpm-development-tools}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/15.jpg}
+
+}
+
+\caption{\label{fig-015}Информация о группе RPM Development Tools}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Установка группы RPM Development Tools}
+\protect\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux433ux440ux443ux43fux43fux44b-rpm-development-tools}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/16.jpg}
+
+}
+
+\caption{\label{fig-016}Установка группы RPM Development Tools}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Удаление группы пакетов и история dnf}
+\protect\phantomsection\label{ux443ux434ux430ux43bux435ux43dux438ux435-ux433ux440ux443ux43fux43fux44b-ux43fux430ux43aux435ux442ux43eux432-ux438-ux438ux441ux442ux43eux440ux438ux44f-dnf}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Для удаления группы пакетов RPM Development Tools воспользовался
+  командой \texttt{dnf\ groupremove\ "RPM\ Development\ Tools"}
+  (рис.~\ref{fig-017})
+\item
+  Посмотрел историю использования команды \texttt{dnf} и отменил
+  последнее действие (рис.~\ref{fig-018}, рис.~\ref{fig-019})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{dnf}\NormalTok{ history}
+\ExtensionTok{dnf}\NormalTok{ history undo 13}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/17.jpg}
+
+}
+
+\caption{\label{fig-017}Удаление группы RPM Development Tools}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/18.jpg}
+
+}
+
+\caption{\label{fig-018}История транзакций dnf}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Отмена транзакции (undo)}
+\protect\phantomsection\label{ux43eux442ux43cux435ux43dux430-ux442ux440ux430ux43dux437ux430ux43aux446ux438ux438-undo}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{image/19.jpg}
+
+}
+
+\caption{\label{fig-019}Отмена транзакции (undo)}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Использование rpm: установка lynx}
+\protect\phantomsection\label{ux438ux441ux43fux43eux43bux44cux437ux43eux432ux430ux43dux438ux435-rpm-ux443ux441ux442ux430ux43dux43eux432ux43aux430-lynx}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Предположим, что требуется установить текстовый браузер \texttt{lynx}
+  из rpm-пакета
+\item
+  Скачал rpm-пакет \texttt{lynx} (рис.~\ref{fig-020},
+  рис.~\ref{fig-021})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{dnf}\NormalTok{ list lynx}
+\ExtensionTok{dnf}\NormalTok{ install lynx }\AttributeTok{{-}{-}downloadonly}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Нашёл каталог, в который был помещён пакет после загрузки
+  (рис.~\ref{fig-022})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{find}\NormalTok{ /var/cache/dnf/ }\AttributeTok{{-}name}\NormalTok{ lynx}\PreprocessorTok{*}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/20.jpg}
+
+}
+
+\caption{\label{fig-020}Поиск пакета lynx}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/21.jpg}
+
+}
+
+\caption{\label{fig-021}Скачивание пакета без установки}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Поиск скачанного файла}
+\protect\phantomsection\label{ux43fux43eux438ux441ux43a-ux441ux43aux430ux447ux430ux43dux43dux43eux433ux43e-ux444ux430ux439ux43bux430}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/22.jpg}
+
+}
+
+\caption{\label{fig-022}Поиск скачанного файла}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Ручная установка lynx через rpm}
+\protect\phantomsection\label{ux440ux443ux447ux43dux430ux44f-ux443ux441ux442ux430ux43dux43eux432ux43aux430-lynx-ux447ux435ux440ux435ux437-rpm}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Перешёл в этот каталог и затем установил rpm-пакет
+  (рис.~\ref{fig-023})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rpm} \AttributeTok{{-}Uhv}\NormalTok{ lynx{-}}\OperatorTok{\textless{}}\NormalTok{версия}\OperatorTok{\textgreater{}}\NormalTok{.rpm}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Определил расположение исполняемого файла (рис.~\ref{fig-024})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which}\NormalTok{ lynx}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{image/23.jpg}
+
+}
+
+\caption{\label{fig-023}Ручная установка через rpm}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{image/24.jpg}
+
+}
+
+\caption{\label{fig-024}Проверка пути установки}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Использование rpm: информация о lynx}
+\protect\phantomsection\label{ux438ux441ux43fux43eux43bux44cux437ux43eux432ux430ux43dux438ux435-rpm-ux438ux43dux444ux43eux440ux43cux430ux446ux438ux44f-ux43e-lynx}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Используя \texttt{rpm}, определил по имени файла, к какому пакету
+  принадлежит \texttt{lynx}, и получил дополнительную информацию о
+  содержимом пакета (рис.~\ref{fig-025}, рис.~\ref{fig-026})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rpm} \AttributeTok{{-}qf} \VariableTok{$(}\FunctionTok{which}\NormalTok{ lynx}\VariableTok{)}
+\ExtensionTok{rpm} \AttributeTok{{-}qi}\NormalTok{ lynx}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/25.jpg}
+
+}
+
+\caption{\label{fig-025}Определение пакета по файлу}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/26.jpg}
+
+}
+
+\caption{\label{fig-026}Детальная информация о пакете}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Использование rpm: файлы пакета lynx}
+\protect\phantomsection\label{ux438ux441ux43fux43eux43bux44cux437ux43eux432ux430ux43dux438ux435-rpm-ux444ux430ux439ux43bux44b-ux43fux430ux43aux435ux442ux430-lynx}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Получил список всех файлов в пакете (рис.~\ref{fig-027},
+  рис.~\ref{fig-028})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rpm} \AttributeTok{{-}ql}\NormalTok{ lynx}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/27.jpg}
+
+}
+
+\caption{\label{fig-027}Список файлов пакета (начало)}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/28.jpg}
+
+}
+
+\caption{\label{fig-028}Список файлов пакета (продолжение)}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Документация lynx}
+\protect\phantomsection\label{ux434ux43eux43aux443ux43cux435ux43dux442ux430ux446ux438ux44f-lynx}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Вывел перечень файлов с документацией пакета (рис.~\ref{fig-029},
+  рис.~\ref{fig-030})
+\item
+  Посмотрел файлы документации, применив команду \texttt{man\ lynx}
+  (рис.~\ref{fig-031})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rpm} \AttributeTok{{-}qd}\NormalTok{ lynx}
+\FunctionTok{man}\NormalTok{ lynx}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/29.jpg}
+
+}
+
+\caption{\label{fig-029}Список документации (запрос)}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/30.jpg}
+
+}
+
+\caption{\label{fig-030}Список документации (вывод)}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Просмотр справки man}
+\protect\phantomsection\label{ux43fux440ux43eux441ux43cux43eux442ux440-ux441ux43fux440ux430ux432ux43aux438-man}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/31.jpg}
+
+}
+
+\caption{\label{fig-031}Просмотр справки man}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Конфигурационные файлы и скрипты lynx}
+\protect\phantomsection\label{ux43aux43eux43dux444ux438ux433ux443ux440ux430ux446ux438ux43eux43dux43dux44bux435-ux444ux430ux439ux43bux44b-ux438-ux441ux43aux440ux438ux43fux442ux44b-lynx}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Вывел на экран перечень и месторасположение конфигурационных файлов
+  пакета (рис.~\ref{fig-032})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rpm} \AttributeTok{{-}qc}\NormalTok{ lynx}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Вывел на экран расположение и содержание скриптов, выполняемых при
+  установке пакета (рис.~\ref{fig-033})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rpm} \AttributeTok{{-}q} \AttributeTok{{-}{-}scripts}\NormalTok{ lynx}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Вывод пуст, что означает отсутствие скриптов установки/удаления для
+  пакета \texttt{lynx}
+\end{itemize}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/32.jpg}
+
+}
+
+\caption{\label{fig-032}Поиск конфигурационных файлов}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/33.jpg}
+
+}
+
+\caption{\label{fig-033}Проверка скриптов установки}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Проверка и удаление lynx}
+\protect\phantomsection\label{ux43fux440ux43eux432ux435ux440ux43aux430-ux438-ux443ux434ux430ux43bux435ux43dux438ux435-lynx}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  В отдельном терминале под своей учётной записью запустил текстовый
+  браузер \texttt{lynx}, чтобы проверить корректность установки пакета
+  (рис.~\ref{fig-034}, рис.~\ref{fig-035})
+\item
+  Вернулся в терминал с учётной записью root и удалил пакет
+  (рис.~\ref{fig-036})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rpm} \AttributeTok{{-}e}\NormalTok{ lynx}
+\FunctionTok{ls}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/34.jpg}
+
+}
+
+\caption{\label{fig-034}Запуск lynx из-под обычного пользователя}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/35.jpg}
+
+}
+
+\caption{\label{fig-035}Работа в текстовом браузере}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Удаление пакета через rpm}
+\protect\phantomsection\label{ux443ux434ux430ux43bux435ux43dux438ux435-ux43fux430ux43aux435ux442ux430-ux447ux435ux440ux435ux437-rpm}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/36.jpg}
+
+}
+
+\caption{\label{fig-036}Удаление пакета через rpm}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Установка dnsmasq}
+\protect\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-dnsmasq}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Предположим, что требуется из rpm-пакетов установить \texttt{dnsmasq}
+  (DNS-, DHCP- и TFTP-сервер)
+\item
+  Установил пакет \texttt{dnsmasq} и определил расположение исполняемого
+  файла (рис.~\ref{fig-037}---рис.~\ref{fig-039})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{dnf}\NormalTok{ list dnsmasq}
+\ExtensionTok{dnf}\NormalTok{ install dnsmasq}
+\FunctionTok{which}\NormalTok{ dnsmasq}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/37.jpg}
+
+}
+
+\caption{\label{fig-037}Сравнение версий dnsmasq}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/38.jpg}
+
+}
+
+\caption{\label{fig-038}Обновление пакета dnsmasq}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Определение пути dnsmasq}
+\protect\phantomsection\label{ux43eux43fux440ux435ux434ux435ux43bux435ux43dux438ux435-ux43fux443ux442ux438-dnsmasq}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/39.jpg}
+
+}
+
+\caption{\label{fig-039}Определение пути dnsmasq}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Информация о dnsmasq}
+\protect\phantomsection\label{ux438ux43dux444ux43eux440ux43cux430ux446ux438ux44f-ux43e-dnsmasq}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Определил по имени файла, к какому пакету принадлежит
+  \texttt{dnsmasq}, и получил дополнительную информацию о содержимом
+  пакета (рис.~\ref{fig-040}---рис.~\ref{fig-043})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rpm} \AttributeTok{{-}qf} \VariableTok{$(}\FunctionTok{which}\NormalTok{ dnsmasq}\VariableTok{)}
+\ExtensionTok{rpm} \AttributeTok{{-}qi}\NormalTok{ dnsmasq}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/40.jpg}
+
+}
+
+\caption{\label{fig-040}Проверка владельца файла}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/41.jpg}
+
+}
+
+\caption{\label{fig-041}Список файлов пакета dnsmasq}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Запрос детальной информации}
+\protect\phantomsection\label{ux437ux430ux43fux440ux43eux441-ux434ux435ux442ux430ux43bux44cux43dux43eux439-ux438ux43dux444ux43eux440ux43cux430ux446ux438ux438}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/42.jpg}
+
+}
+
+\caption{\label{fig-042}Запрос детальной информации}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Детальная информация о dnsmasq}
+\protect\phantomsection\label{ux434ux435ux442ux430ux43bux44cux43dux430ux44f-ux438ux43dux444ux43eux440ux43cux430ux446ux438ux44f-ux43e-dnsmasq}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{image/43.jpg}
+
+}
+
+\caption{\label{fig-043}Детальная информация о dnsmasq}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Документация и конфигурация dnsmasq}
+\protect\phantomsection\label{ux434ux43eux43aux443ux43cux435ux43dux442ux430ux446ux438ux44f-ux438-ux43aux43eux43dux444ux438ux433ux443ux440ux430ux446ux438ux44f-dnsmasq}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Получил список всех файлов в пакете, а также вывел перечень файлов с
+  документацией пакета (рис.~\ref{fig-044}---рис.~\ref{fig-046}).
+  Посмотрел файлы документации, применив команду \texttt{man\ dnsmasq}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rpm} \AttributeTok{{-}ql}\NormalTok{ dnsmasq}
+\ExtensionTok{rpm} \AttributeTok{{-}qd}\NormalTok{ dnsmasq}
+\FunctionTok{man}\NormalTok{ dnsmasq}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Вывел на экран перечень и месторасположение конфигурационных файлов
+  пакета (рис.~\ref{fig-048})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rpm} \AttributeTok{{-}qc}\NormalTok{ dnsmasq}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/44.jpg}
+
+}
+
+\caption{\label{fig-044}Запрос списка файлов}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/45.jpg}
+
+}
+
+\caption{\label{fig-045}Список файлов (повтор)}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Список документации dnsmasq}
+\protect\phantomsection\label{ux441ux43fux438ux441ux43eux43a-ux434ux43eux43aux443ux43cux435ux43dux442ux430ux446ux438ux438-dnsmasq}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/46.jpg}
+
+}
+
+\caption{\label{fig-046}Список документации dnsmasq}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}[fragile]{Скрипты и удаление dnsmasq}
+\protect\phantomsection\label{ux441ux43aux440ux438ux43fux442ux44b-ux438-ux443ux434ux430ux43bux435ux43dux438ux435-dnsmasq}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Вывел на экран расположение и содержание скриптов, выполняемых при
+  установке пакета (рис.~\ref{fig-049})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rpm} \AttributeTok{{-}q} \AttributeTok{{-}{-}scripts}\NormalTok{ dnsmasq}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Скрипты предназначены для создания пользователя \texttt{dnsmasq} и
+  настройки systemd-сервиса при установке, а также для его остановки и
+  удаления пользователя при удалении пакета
+\item
+  Вернулся в терминал с учётной записью root и удалил пакет
+  (рис.~\ref{fig-050}, рис.~\ref{fig-051})
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rpm} \AttributeTok{{-}e}\NormalTok{ dnsmasq}
+\FunctionTok{ls}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/47.jpg}
+
+}
+
+\caption{\label{fig-047}Просмотр man-страницы}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/48.jpg}
+
+}
+
+\caption{\label{fig-048}Поиск конфигурационных файлов}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Просмотр скриптов установки}
+\protect\phantomsection\label{ux43fux440ux43eux441ux43cux43eux442ux440-ux441ux43aux440ux438ux43fux442ux43eux432-ux443ux441ux442ux430ux43dux43eux432ux43aux438}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.32\linewidth,height=\textheight,keepaspectratio]{image/49.jpg}
+
+}
+
+\caption{\label{fig-049}Просмотр скриптов установки}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Удаление dnsmasq}
+\protect\phantomsection\label{ux443ux434ux430ux43bux435ux43dux438ux435-dnsmasq}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{image/50.jpg}
+
+}
+
+\caption{\label{fig-050}Удаление пакета dnsmasq}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{image/51.jpg}
+
+}
+
+\caption{\label{fig-051}Детальная информация о dnsmasq (повтор)}
+
+\end{figure}%
+\end{frame}
+
+\section{Ответы на контрольные
+вопросы}\label{ux43eux442ux432ux435ux442ux44b-ux43dux430-ux43aux43eux43dux442ux440ux43eux43bux44cux43dux44bux435-ux432ux43eux43fux440ux43eux441ux44b}
+
+\begin{frame}[fragile]{Вопросы 1--3}
+\protect\phantomsection\label{ux432ux43eux43fux440ux43eux441ux44b-13}
+\textbf{1. Какая команда позволяет вам искать пакет rpm, содержащий файл
+useradd?}
+
+Для поиска пакета, содержащего файл \texttt{useradd}, используется
+команда \texttt{dnf\ provides\ */useradd} или
+\texttt{dnf\ provides\ "*bin/useradd"}. Также можно использовать
+\texttt{rpm\ -qf\ \$(which\ useradd)}, если файл уже установлен в
+системе.
+
+\textbf{2. Какие команды вам нужно использовать, чтобы показать имя
+группы dnf, которая содержит инструменты безопасности и показывает, что
+находится в этой группе?}
+
+Для отображения списка групп пакетов используется команда
+\texttt{dnf\ grouplist}. Для получения информации о конкретной группе,
+содержащей инструменты безопасности (например, «Security Tools»),
+используется команда \texttt{dnf\ groupinfo\ "Security\ Tools"}.
+
+\textbf{3. Какая команда позволяет вам установить rpm, который вы
+загрузили из Интернета и который не находится в репозиториях?}
+
+Для установки локального rpm-пакета используется команда
+\texttt{rpm\ -Uhv\ имя\_пакета.rpm} или
+\texttt{dnf\ install\ имя\_пакета.rpm}. Также можно использовать
+\texttt{dnf\ install\ http://server/repo/имя\_пакета.rpm} для установки
+из сети.
+\end{frame}
+
+\begin{frame}[fragile]{Вопросы 4--6}
+\protect\phantomsection\label{ux432ux43eux43fux440ux43eux441ux44b-46}
+\textbf{4. Вы хотите убедиться, что пакет rpm, который вы загрузили, не
+содержит никакого опасного кода сценария. Какая команда позволяет это
+сделать?}
+
+Для просмотра скриптов, выполняемых при установке/удалении пакета,
+используется команда \texttt{rpm\ -q\ -\/-scripts\ имя\_пакета}. Она
+выводит содержимое скриптов, что позволяет проверить их на наличие
+опасных действий.
+
+\textbf{5. Какая команда показывает всю документацию в rpm?}
+
+Для отображения списка файлов документации, входящих в пакет,
+используется команда \texttt{rpm\ -qd\ имя\_пакета}. Для просмотра всей
+документации можно также использовать
+\texttt{rpm\ -ql\ имя\_пакета\ \textbar{}\ grep\ -E\ \textquotesingle{}man\textbar{}doc\textbar{}html\textquotesingle{}}.
+
+\textbf{6. Какая команда показывает, какому пакету rpm принадлежит
+файл?}
+
+Для определения принадлежности файла к пакету используется команда
+\texttt{rpm\ -qf\ путь\_к\_файлу}. Например,
+\texttt{rpm\ -qf\ \$(which\ lynx)}.
+\end{frame}
+
+\section{Результаты и
+выводы}\label{ux440ux435ux437ux443ux43bux44cux442ux430ux442ux44b-ux438-ux432ux44bux432ux43eux434ux44b}
+
+\begin{frame}[fragile]{Полученные навыки}
+\protect\phantomsection\label{ux43fux43eux43bux443ux447ux435ux43dux43dux44bux435-ux43dux430ux432ux44bux43aux438}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Получены навыки работы с репозиториями и менеджерами пакетов
+\item
+  Изучены основные команды \texttt{dnf} для поиска, установки,
+  обновления, удаления пакетов и работы с историей действий
+\item
+  Освоены команды \texttt{rpm} для получения информации о пакетах, их
+  файлах, документации, конфигурационных файлах и скриптах установки
+\item
+  Изучено расположение конфигурационных файлов \texttt{dnf} и
+  репозиториев
+\end{itemize}
+\end{frame}
+
+\section*{Список
+литературы}\label{ux441ux43fux438ux441ux43eux43a-ux43bux438ux442ux435ux440ux430ux442ux443ux440ux44b}
+\addcontentsline{toc}{section}{Список литературы}
+
+\begin{frame}{Список литературы}
+\protect\phantomsection\label{refs}
+\end{frame}
+
+
+
+
+\end{document}
