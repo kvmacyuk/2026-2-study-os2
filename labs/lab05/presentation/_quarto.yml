@@ -10,7 +10,9 @@ crossref:
   lof-title: Список иллюстраций
   lot-title: Список таблиц
   lol-title: Листинги
-format: # Formats
+
+format:
+
   beamer: # Pdf output format
     toc: true
     toc-title: Содержание
@@ -20,7 +22,7 @@ format: # Formats
     toc-depth: 1
     aspectratio: 169
     section-titles: true
-    incremental: true
+    incremental: false
     navigation: horizontal
     csquotes: true
     indent: true
@@ -28,11 +30,60 @@ format: # Formats
       - file: _resources/tex/beamer.tex
     babel-lang: russian
     babel-otherlangs: english
+
   revealjs: # Html output
-    transition: slide
-    margin: 0.2
+    theme: simple
+    auto-stretch: false
+    center: false
+    margin: 0.15
     smaller: true
     slide-number: true
+    transition: slide
     output-ext: html
-    theme: beige
+    slide-level: 2
+    section-titles: false
     logo: _resources/image/logo_rudn.png
+
+    include-in-header:
+      - text: |
+          <style>
+            @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap');
+
+            .reveal { font-family: 'IBM Plex Sans', sans-serif; }
+            .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+              font-family: 'IBM Plex Serif', serif;
+              text-transform: none;
+              letter-spacing: normal;
+            }
+            .reveal code, .reveal pre, .reveal pre code {
+              font-family: 'DejaVu Sans Mono', monospace;
+            }
+            .reveal .slides section { text-align: left; }
+            .reveal .slides section.title-slide {
+              text-align: center;
+              display: flex !important;
+              flex-direction: column;
+              justify-content: center;
+              height: 100%;
+            }
+            .reveal .slides section.title-slide h1 {
+              font-size: 1.6em;
+              margin-bottom: 0.4em;
+            }
+            .reveal .slides section.title-slide p.subtitle {
+              font-size: 1em;
+              margin: 0.2em 0 1em 0;
+            }
+          </style>
+
+          <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            function fix() {
+              if (window.Reveal && window.Reveal.configure) {
+                window.Reveal.configure({ autoStretch: false, center: false });
+              }
+            }
+            fix();
+            window.addEventListener('load', fix);
+          });
+          </script>
